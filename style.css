@@ -1,10 +1,59 @@
 body{
     display: flex;
+    flex-direction: column;
+    
     background-color: black;
     height: 100vh;
     width: 100vw;
 }
 .main{
+    display: flex;
+    
+    position: relative;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    justify-content: center;
+    align-items: center;
+
+}
+#background{
+   
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    opacity: 30%;
+    
+     
+   
+
+    animation-duration: 20s;
+    animation-name: rotation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background-repeat: no-repeat;
+    
     
 
+   
+}
+@keyframes rotation{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+#title{
+    color: rgb(234, 205, 101);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+
+}
+#text{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
