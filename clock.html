@@ -4,18 +4,32 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Club X</title>
 		<style>
 			html,
 			body {
-				height: 100vh;
 				margin: 0;
 				background-color: #000;
+				color: rgb(255, 200, 207);
 				display: flex;
-				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				color: rgb(255, 200, 207);
+				flex-direction: column;
+			}
+
+			.clock-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				width: 100%;
+				height: 100vh;
 			}
 
 			@font-face {
@@ -29,11 +43,13 @@
 			}
 
 			h2 {
-				font-family: neon, sans-serif;
+				font-family: Orbitron, neon, sans-serif;
+				text-transform: uppercase;
+				text-align: center;
 			}
 
 			#clock {
-				font-size: 6rem;
+				font-size: min(12vw, 6rem);
 				font-family: clock;
 				text-transform: uppercase;
 				position: relative;
@@ -57,16 +73,30 @@
 			}
 
 			p {
-				word-spacing: 7rem;
+				word-spacing: min(12vw, 7rem);
 				font-family: sans-serif;
-				/*transform: translateX(-3lvw);*/
+			}
+
+			.legend {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				width: 100%;
 			}
 		</style>
 	</head>
 	<body>
-		<span id="clock"></span>
-		<p>d h min s ms</p>
-		<h2>More information to come soon.</h2>
+		<div class="clock-wrapper">
+			<span id="clock"></span>
+			<div class="legend">
+				<span>d</span>
+				<span>h</span>
+				<span>min</span>
+				<span>s</span>
+				<span>ms</span>
+			</div>
+			<h2>More information to come soon</h2>
+		</div>
 		<script>
 			const clock = document.querySelector("#clock");
 
