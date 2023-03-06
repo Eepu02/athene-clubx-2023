@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Club Apocalypse</title>
+		<title>Club X</title>
 		<style>
 			html,
 			body {
@@ -21,6 +21,15 @@
 			@font-face {
 				font-family: clock;
 				src: url(alarm\ clock.ttf);
+			}
+
+			@font-face {
+				font-family: neon;
+				src: url(TextMeOne-Regular.ttf);
+			}
+
+			h2 {
+				font-family: neon, sans-serif;
 			}
 
 			#clock {
@@ -56,7 +65,8 @@
 	</head>
 	<body>
 		<span id="clock"></span>
-		<p>dd hh MM ss mm</p>
+		<p>d h min s ms</p>
+		<h2>More information to come soon.</h2>
 		<script>
 			const clock = document.querySelector("#clock");
 
