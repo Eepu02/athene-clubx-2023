@@ -38,3 +38,28 @@ const clock = document.querySelector("#clock");
 
 			// Updates every 16 ms, or roughly 60 times per second to match the screen refresh rate
 			setInterval(tick, 16);
+
+
+
+//Radiation
+
+
+const createRadiationParticle = () =>{
+    let particle = document.createElement("div");
+    particle.classList.add("particle")
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.top = Math.random() * 100 + "vh";
+
+    const body = document.querySelector("body")
+    body.appendChild(particle)
+
+    setTimeout(() => {
+        particle.remove();
+      }, 1);
+
+}
+
+setInterval(() => {
+    createRadiationParticle();
+    
+  }, 1);

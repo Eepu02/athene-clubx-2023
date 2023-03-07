@@ -1,51 +1,81 @@
 html{
     scroll-behavior: smooth;
 }
-
-body{
-    
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
     display: flex;
-    position: relative;
     flex-direction: column;
-    background-color: black;
-    
-
+    color: white;
+   
 }
+
 header{
     background-color: transparent;
     
    
 }
 #page{
-    position: relative;
+    margin-top: 12vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
-    
-    
-    
-    
-
+}
+.legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 2vw;
+    font-family: orbitron;
+    width: 100%;
 }
 #title{
-    position: absolute;
-    color: rgb(220, 127, 51);
+   
+    color: rgb(200, 143, 45);
     font-family: Neon;
     font-size: min(12vw, 15rem);
 
     z-index: 0;
     white-space: nowrap;
     top: 20%;
-    
-    
+    --shadow-color: rgba(255, 75, 75, 0.75);
+				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
+					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
+					0 0 100px var(--shadow-color); 
     
 
+    animation: flicker 1.6s infinite alternate;
+
+
 }
+@keyframes flicker {
+    0%,
+    26%,
+    45%,
+    68%,
+    88%
+    {
+        --shadow-color:rgba(255, 75, 75, 0.75);
+        text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
+            0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
+            0 0 100px var(--shadow-color); 
+        color:rgb(220, 127, 51) ;
+    }
+    7%,
+    78%
+    {
+    text-shadow: none;
+    color: rgb(40, 38, 38);
+    }
+
+}
+
 .center{
-    position: absolute;
+    margin-top: 7vw;
     display: flex;
     flex-direction: column;
     color: white;
@@ -69,31 +99,67 @@ header{
     overflow: hidden;  
 }
 #more-info{
-    position: absolute;
-    top: 85%;
-
-}
-#buttons{
-    position: absolute;
+    margin-top: 20vw;
+    font-size: 1.5vw;
+ }
+ #buttons{
+   
     display: flex;
     flex-direction: row;
     text-align: center;
     top:97%;
     border: none;   
 }
+#buttons :hover{
+    color: rgb(219, 120, 22);
+}
+
+#info{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vw;
+    
+    
+}
+.sub-title{
+    font-size: 2vw;
+    --shadow-color: rgba(255, 75, 75, 0.75);
+				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
+					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
+					0 0 100px var(--shadow-color); 
+}
+footer{
+    
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30vw ;
+    font-size: 3vw;
+}
+
+
+
+
+
+
 a{
     height: 5vw;
     width: 20vw;
     scale: 70%;
 }
 .button-text{
-    color: red;
+    color: rgb(255, 200, 207);
+    --shadow-color: rgba(255, 75, 75, 0.75);
+				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
+					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
+					0 0 100px var(--shadow-color); 
     white-space: nowrap;
+    font-size: 3vw;
     
 }
-
-
-
 
 
 @keyframes rotation{
@@ -111,18 +177,13 @@ a{
     
     z-index: 0;
 }
+.small-text{
+    font-size: 2vw;
 
-
-body {
-    height: 100vh;
-    margin: 0;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgb(255, 200, 207);
 }
+
+
+
 
 @font-face {
     font-family: clock;
@@ -152,6 +213,7 @@ h2 {
     text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
         0 0 60px rgb(254, 83, 83), 0 0 80px var(--shadow-color),
         0 0 100px var(--shadow-color);
+    margin-top: 2vw;
 }
 
 #clock::before {
@@ -167,16 +229,11 @@ h2 {
 p {
     
     font-family: Orbitron;
-    font-size: 1.5vw;
+    font-size: 2vw;
     white-space: nowrap;
     /*transform: translateX(-3lvw);*/
 }
-.legend {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-}
+
 .clock-wrapper {
     display: flex;
     justify-content: center;
@@ -184,30 +241,29 @@ p {
     flex-direction: column;
 }
 
-#info{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 100%;
-    
-    
-}
+
 .text-box{
    
-    position: relative;
+    
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(54, 49, 56);
+    
     font-size: 2vw;
     font-family: Orbitron;
-    width: 30vw;
-    height: 10vw;
+    width: 100vw;
+    height: 15vw;
     text-align: center;
-    margin: 3vw;
+    margin: 4vw;
+    
+    
+    background-image: linear-gradient(180deg, transparent, rgb(45, 33, 22) 30%, rgb(21, 17, 12) 60%, black);
+   
     
 }
+
 @media (max-width: 1500px){
     p{
         font-size: 4vw;
@@ -233,3 +289,12 @@ p {
         font-size: 2vw;
     }
 }
+
+
+
+.particle {
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    background: white;
+  }
