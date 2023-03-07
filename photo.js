@@ -1,17 +1,29 @@
 // for easy future referencing
 const canvas = document.querySelector(".product-slide");
 const context = canvas.getContext('2d');
-const frameCount = 216;
+const frameCount = 108;
 
-const loader = document.querySelector(".loader-bg");
+// const loader = document.querySelector(".loader-bg");
 
 // Stores the images for fast access
 const images = []
+const imgPath = () => {
+    // if(screen.availWidth > 800) {
+    //     return "short_desktop_img_sequence";
+    // } else {
+    //     return "short_mobile_img_sequence";
+    // }
+    return screen.availWidth > 800 ? "short_desktop_img_sequence" : "short_mobile_img_sequence"
+};
+
+// addEventListener("resize", (event) => {
+//     path
+// });
 
 // takes index of img as parameter, returns src of img
 const currentFrame = index => (
     // `assets/1080_50/${index.toString().padStart(4, '0')}.jpg`
-    `assets/img_sequence/${index.toString().padStart(4, '0')}.webp`
+    `assets/${imgPath()}/${index.toString().padStart(4, '0')}.webp`
 )
 
 canvas.height = window.innerHeight;
@@ -20,7 +32,7 @@ canvas.width = window.innerWidth;
 let img = new Image();
 
 // Set source to 1st frame
-img.src = currentFrame(1);
+img.src = currentFrame(0);
 
 // Calculate scale and img draw position
 const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
@@ -35,7 +47,7 @@ img.onload = function() {
 // Updates img path and draws updated image
 const updateImage = index => {
     let photo = images[index];
-    // console.log(photo.src)
+    console.log(photo.src)
     // img.src = currentFrame(index);
     context.drawImage(images[index], 0,0, photo.width, photo.height, centerShift_x, centerShift_y, photo.width*scale, photo.height*scale);
 }
@@ -54,22 +66,25 @@ window.addEventListener('scroll', () => {
     }
 
     const scrollFraction = Math.max(0, (window.pageYOffset - canvasPos) / sizes.height);
+    // if(scrollFraction >= 1) {
+    //     wrapper.classList.toggle("lock");
+    // }
     
     const frameIndex = Math.min(
       frameCount - 1,
       Math.floor(scrollFraction * frameCount)
     );
-    requestAnimationFrame(() => updateImage(frameIndex + 1));
+    requestAnimationFrame(() => updateImage(frameIndex));
   });
 
 // Loads images into memory for faster access
 async function preloadImages() {
-    for(let i = 1; i <= frameCount; i++) {
+    for(let i = 1; i < frameCount; i++) {
         const img = new Image();
         img.src = currentFrame(i);
         images[i] = img;
     }
-    loader.style.display = "none";
+    // loader.style.display = "none";
     // requestAnimationFrame(() => updateImage(0));
     console.log("images loaded!");
 };
