@@ -47,7 +47,7 @@ img.onload = function() {
 // Updates img path and draws updated image
 const updateImage = index => {
     let photo = images[index];
-    console.log(photo.src)
+    // console.log(photo.src)
     // img.src = currentFrame(index);
     context.drawImage(images[index], 0,0, photo.width, photo.height, centerShift_x, centerShift_y, photo.width*scale, photo.height*scale);
 }
@@ -58,16 +58,19 @@ window.addEventListener('scroll', () => {
   
     const sizes = wrapper.getBoundingClientRect();
     if(window.pageYOffset > canvasPos + sizes.height) {
-      wrapper.style.position = 'relative';
-      wrapper.style.marginTop = sizes.height + 'px';
+    // Fires when scroll is at its end
+    //   wrapper.style.position = 'relative';
+    //   wrapper.style.marginTop = sizes.height + 'px';
+    //   console.log(window.pageYOffset)
     } else {
-      wrapper.style.position = 'sticky';
-      wrapper.style.marginTop = '0px';
+    //   wrapper.style.position = 'sticky';
+    //   wrapper.style.marginTop = '0px';
     }
 
     const scrollFraction = Math.max(0, (window.pageYOffset - canvasPos) / sizes.height);
     // if(scrollFraction >= 1) {
-    //     wrapper.classList.toggle("lock");
+    //     wrapper.style.position = 'fixed';
+    //     wrapper.style.margin
     // }
     
     const frameIndex = Math.min(
