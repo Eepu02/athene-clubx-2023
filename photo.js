@@ -57,21 +57,17 @@ const canvasPos = wrapper.getBoundingClientRect().top;
 window.addEventListener('scroll', () => {
   
     const sizes = wrapper.getBoundingClientRect();
-    if(window.pageYOffset > canvasPos + sizes.height) {
+    // if(window.pageYOffset > canvasPos + sizes.height) {
     // Fires when scroll is at its end
     //   wrapper.style.position = 'relative';
     //   wrapper.style.marginTop = sizes.height + 'px';
     //   console.log(window.pageYOffset)
-    } else {
+    // } else {
     //   wrapper.style.position = 'sticky';
     //   wrapper.style.marginTop = '0px';
-    }
+    // }
 
     const scrollFraction = Math.max(0, (window.pageYOffset - canvasPos) / sizes.height);
-    // if(scrollFraction >= 1) {
-    //     wrapper.style.position = 'fixed';
-    //     wrapper.style.margin
-    // }
     
     const frameIndex = Math.min(
       frameCount - 1,
@@ -87,9 +83,8 @@ async function preloadImages() {
         img.src = currentFrame(i);
         images[i] = img;
     }
-    // loader.style.display = "none";
     // requestAnimationFrame(() => updateImage(0));
-    console.log("images loaded!");
+    console.log("All images loaded!");
 };
 
 preloadImages();
