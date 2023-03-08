@@ -20,9 +20,26 @@ canvas.width = window.innerWidth;
 const wrapper = document.querySelector(".canvas-wrapper");
 const canvasPos = wrapper.getBoundingClientRect().top;
 
-const renderImg = (index = 0) => {
+// Updates img path and draws updated image
+function updateImage(index = 0) {
+	const photo = images[index];
+	console.log(photo);
+	context.drawImage(
+		photo,
+		0,
+		0,
+		photo.width,
+		photo.height,
+		centerShift_x,
+		centerShift_y,
+		photo.width * scale,
+		photo.height * scale
+	);
+}
+
+function renderImg(index = 0) {
 	requestAnimationFrame(() => updateImage(index));
-};
+}
 
 preloadImages();
 
@@ -30,6 +47,7 @@ let img = new Image();
 
 // Responsible for initial load
 img.onload = () => {
+	console.log(img);
 	renderImg();
 };
 
@@ -48,22 +66,6 @@ const updateScaling = () => {
 };
 
 updateScaling();
-
-// Updates img path and draws updated image
-const updateImage = (index = 0) => {
-	const photo = images[index];
-	context.drawImage(
-		photo,
-		0,
-		0,
-		photo.width,
-		photo.height,
-		centerShift_x,
-		centerShift_y,
-		photo.width * scale,
-		photo.height * scale
-	);
-};
 
 const getFrameIndex = () => {
 	// Get size and position of canvas wrapper
@@ -91,10 +93,10 @@ addEventListener("resize", () => {
 });
 
 // Loads images into memory for faster access
-const preloadImages = () => {
+function preloadImages() {
 	for (let i = 0; i < frameCount; i++) {
 		const img = new Image();
 		img.src = currentFrame(i);
 		images[i] = img;
 	}
-};
+}
