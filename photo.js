@@ -93,6 +93,8 @@ addEventListener("resize", () => {
 	renderImg(getFrameIndex());
 });
 
+
+
 // Loads images into memory for faster access
 function preloadImages() {
 	for (let i = 0; i < frameCount; i++) {
@@ -101,3 +103,4 @@ function preloadImages() {
 		images[i] = img;
 	}
 }
+
