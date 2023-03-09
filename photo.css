@@ -122,6 +122,7 @@ footer {
 	padding: 0;
 	z-index: 0;
 	color: #ffe1e1;
+	/* Shadow has to be minimal to keep performance high */
 	text-shadow: 0 0 20px rgb(255, 97, 97), 0 0 60px rgb(254, 83, 83);
 	/* text-shadow: 0 0 20px rgb(255, 97, 97), 0 0 60px rgb(254, 83, 83),
 		0 0 80px var(--clock-shadow), 0 0 100px var(--clock-shadow); */
