@@ -86,7 +86,7 @@ footer {
 }
 
 #clock {
-	font-size: min(10vw, 10rem);
+	font-size: min(10vw, 4rem);
 	font-family: clock;
 	text-transform: uppercase;
 	position: relative;
