@@ -6,8 +6,6 @@ html {
 	margin: 0;
 	padding: 0;
 	scroll-behavior: smooth;
-	font-family: sans-serif;
-
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
@@ -20,6 +18,8 @@ body {
 	background-color: #000;
 	color: white;
 	margin: 0;
+	font-family: Orbitron, sans-serif;
+	overflow-x: hidden;
 }
 
 .content {
@@ -31,13 +31,17 @@ body {
 .canvas-wrapper {
 	position: fixed;
 	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
 }
 
 canvas {
-	min-width: 100%;
+	width: 100%;
 }
 
-.text-container {
+#slide-over {
 	margin-top: 200vh;
 	min-height: 100vh;
 	position: relative;
@@ -68,35 +72,26 @@ canvas {
 	width: 100%;
 }
 
-/* .center {
-	margin-top: 10vw;
-	display: flex;
-	flex-direction: column;
-	color: white;
-	align-items: center;
-	justify-content: center;
-	top: 50%;
-} */
 #background {
 	position: absolute;
 	width: 80vw;
 	height: 80vw;
 	opacity: 10%;
-	animation-duration: 20s;
+	/* animation-duration: 20s; */
 	/* animation-name: rotation; */
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	background-repeat: no-repeat;
+	/* animation-timing-function: linear; */
+	/* animation-iteration-count: infinite; */
+	/* background-repeat: no-repeat; */
+	/* animation: rotation 20s linear infinite; */
 	z-index: 0;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 footer {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	gap: 30vw;
-	font-size: 3vw;
 }
 
 @keyframes rotation {
@@ -108,16 +103,9 @@ footer {
 	}
 }
 
-.text {
-	color: white;
-	font-family: Neon;
-
-	z-index: 0;
-}
-
 @font-face {
 	font-family: clock;
-	src: url(assets/font/alarm\ clock.ttf);
+	src: url(assets/fonts/alarm\ clock.ttf);
 }
 
 @font-face {
@@ -137,11 +125,10 @@ footer {
 	/* text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
 		0 0 60px rgb(254, 83, 83), 0 0 80px var(--shadow-color),
 		0 0 100px var(--shadow-color); */
-	margin-top: 2vw;
 }
 
 #clock::before {
-	content: "ÆÆ:ÆÆ:ÆÆ:ÆÆ:ÆÆÆ";
+	content: "ÆÆ:ÆÆ:ÆÆ:ÆÆ";
 	color: gray;
 	opacity: 0.3;
 	position: absolute;
@@ -178,27 +165,18 @@ footer {
 .text-box {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	text-align: center;
-
-	margin: 2vw;
+	margin: 2rem;
 	padding: 10px;
-
-	background-color: transparent;
 }
 .sub-title {
-	font-size: 2vw;
-	--shadow-color: rgba(255, 75, 75, 0.75);
-	text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
+	font-size: 3rem;
+	/* text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
 		0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
-		0 0 100px var(--shadow-color);
-}
-p {
-	font-family: Orbitron;
-	font-size: 1.5vw;
+		0 0 100px var(--shadow-color); */
 }
 
-@media (max-width: 750px) {
+/* @media (max-width: 750px) {
 	.center {
 		margin-top: 0vw;
 	}
@@ -227,7 +205,7 @@ p {
 	.button-text {
 		font-size: 2vw;
 	}
-}
+} */
 
 .particle {
 	width: 3px;

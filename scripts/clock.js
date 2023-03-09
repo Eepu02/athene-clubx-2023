@@ -22,14 +22,14 @@ const tick = () => {
 		const hh = String(clockTime.getHours()).padStart(2, "0");
 		const MM = String(clockTime.getMinutes()).padStart(2, "0");
 		const ss = String(clockTime.getSeconds()).padStart(2, "0");
-		const mm = String(clockTime.getMilliseconds()).padStart(3, "0");
+		// const mm = String(clockTime.getMilliseconds()).padStart(3, "0");
 
-		const display = dd + ":" + hh + ":" + MM + ":" + ss + ":" + mm;
+		const display = dd + ":" + hh + ":" + MM + ":" + ss;
 		clock.innerHTML = display;
 	} else {
-		clock.innerHTML = "00:00:00:00:000";
+		clock.innerHTML = "00:00:00:00";
 	}
 };
 
 // Updates every 16 ms, or roughly 60 times per second to match the screen refresh rate
-// setInterval(tick, 16);
+setInterval(tick, 1000);
