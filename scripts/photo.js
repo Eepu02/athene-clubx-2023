@@ -1,9 +1,10 @@
 // for easy future referencing
 const canvas = document.querySelector(".product-slide");
+const slideOver = document.querySelector("#slide-over");
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 const context = canvas.getContext("2d");
-const frameCount = 108;
+const frameCount = 115;
 
 // Stores the images in an array for quick  access
 const images = [];
@@ -84,16 +85,20 @@ function renderImg(index = 0) {
 	requestAnimationFrame(() => drawImage(images[index]));
 }
 
+const isVisible = () => {
+	return slideOver.getBoundingClientRect().top >= 0;
+};
+
 addEventListener("scroll", () => {
-	renderImg(getFrameIndex());
+	if (isVisible()) {
+		renderImg(getFrameIndex());
+	}
 });
 
 addEventListener("resize", () => {
 	updateScaling();
 	renderImg(getFrameIndex());
 });
-
-
 
 // Loads images into memory for faster access
 function preloadImages() {
@@ -103,4 +108,3 @@ function preloadImages() {
 		images[i] = img;
 	}
 }
-

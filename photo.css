@@ -1,9 +1,16 @@
+:root {
+	/* --shadow-color: rgba(255, 75, 75, 0.75); */
+	--clock-shadow: hsl(0, 100%, 64.7%, 0.75);
+	--title-shadow: hsl(0, 100%, 64.7%, 0.75);
+	/* --title-shadow: hsla(27, 100%, 65%, 0.75); */
+	--text-color: #fff;
+	--bg-color: #0f0a05;
+}
+
 html {
 	margin: 0;
 	padding: 0;
 	scroll-behavior: smooth;
-	font-family: sans-serif;
-
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
@@ -13,9 +20,10 @@ html::-webkit-scrollbar {
 }
 
 body {
-	background-color: #000;
-	color: white;
 	margin: 0;
+	font-family: Orbitron, sans-serif;
+	overflow-x: hidden;
+	color: var(--text-color);
 }
 
 .content {
@@ -27,333 +35,149 @@ body {
 .canvas-wrapper {
 	position: fixed;
 	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
 }
 
 canvas {
-	min-width: 100%;
+	width: 100%;
 }
 
-.text-container {
+#slide-over {
 	margin-top: 200vh;
 	min-height: 100vh;
 	position: relative;
+	width: 100%;
+	background-color: var(--bg-color);
+}
+
+#info {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	
-	background-color: black;
-	color: white;
-	width: 100vw;
+	align-items: center;
+	padding-top: 5rem;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#page{
-    margin-top: 12vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
+#info::before {
+	content: "";
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Nuclear_symbol.svg/900px-Nuclear_symbol.svg.png?20131012175551");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 3%;
+	animation: rotation 20s linear infinite;
 }
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .legend {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 2vw;
-    font-family: orbitron;
-    width: 100%;
-}
-#title{
-   
-    color: rgb(200, 143, 45);
-    font-family: Neon;
-    font-size: min(12vw, 15rem);
-
-    z-index: 0;
-    white-space: nowrap;
-    top: 20%;
-    --shadow-color: rgba(255, 75, 75, 0.75);
-				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
-					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
-					0 0 100px var(--shadow-color); 
-    
-
-    animation: flicker 1.6s infinite alternate;
-
-
-}
-@keyframes flicker {
-    0%,
-    26%,
-    45%,
-    68%,
-    88%
-    {
-        --shadow-color:rgba(255, 75, 75, 0.75);
-        text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
-            0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
-            0 0 100px var(--shadow-color); 
-        color:rgb(220, 127, 51) ;
-    }
-    7%,
-    78%
-    {
-    text-shadow: none;
-    color: rgb(40, 38, 38);
-    }
-
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	font-family: orbitron;
+	width: 100%;
 }
 
-.center{
-    margin-top: 10vw;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-
-}
-#background{
-   
-    position: absolute;
-    width: 80vw;
-    height: 80vw;
-    opacity: 10%;
-    animation-duration: 20s;
-    animation-name: rotation;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    background-repeat: no-repeat;
-    z-index: 0;
-    overflow: hidden;  
-}
-#more-info{
-    margin-top: 20vw;
-    font-size: 1.5vw;
- }
- #buttons{
-   
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    top:97%;
-    border: none;   
-}
-#buttons :hover{
-    color: rgb(219, 120, 22);
-}
-
-
-
-footer{
-    
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30vw ;
-    font-size: 3vw;
-}
-
-
-
-
-
-
-a{
-    height: 5vw;
-    width: 20vw;
-    scale: 70%;
-}
-.button-text{
-    color: rgb(255, 200, 207);
-    --shadow-color: rgba(255, 75, 75, 0.75);
-				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
-					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
-					0 0 100px var(--shadow-color); 
-    white-space: nowrap;
-    font-size: 3vw;
-    
-}
-
-
-@keyframes rotation{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-}
-
-.text{
-    color: white;
-    font-family: Neon;
-    
-    z-index: 0;
-}
-
-
-
-
-
-@font-face {
-    font-family: clock;
-    src: url(alarm\ clock.ttf);
+footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 30vw;
 }
 
 @font-face {
-    font-family: neon;
-    src: url(TextMeOne-Regular.ttf);
+	font-family: clock;
+	src: url(assets/fonts/alarm\ clock.ttf);
 }
 
-h2 {
-    font-family: neon, sans-serif;
+@font-face {
+	font-family: neon;
+	src: url(assets/fonts/TextMeOne-Regular.ttf);
 }
 
 #clock {
-   /* font-size: clamp(40px, 6vw, 100px); */
-   font-size: min(10vw, 10rem);
-    
-    font-family: clock;
-    text-transform: uppercase;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    z-index: 0;
-    --shadow-color: rgba(255, 75, 75, 0.75);
-    text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
-        0 0 60px rgb(254, 83, 83), 0 0 80px var(--shadow-color),
-        0 0 100px var(--shadow-color);
-    margin-top: 2vw;
+	font-size: min(10vw, 4rem);
+	font-family: clock;
+	text-transform: uppercase;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	z-index: 0;
+	color: #ffe1e1;
+	/* Shadow has to be minimal to keep performance high */
+	text-shadow: 0 0 20px rgb(255, 97, 97), 0 0 60px rgb(254, 83, 83);
+	/* text-shadow: 0 0 20px rgb(255, 97, 97), 0 0 60px rgb(254, 83, 83),
+		0 0 80px var(--clock-shadow), 0 0 100px var(--clock-shadow); */
 }
 
 #clock::before {
-    content: "ÆÆ:ÆÆ:ÆÆ:ÆÆ:ÆÆÆ";
-    color: gray;
-    opacity: 0.3;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+	content: "ÆÆ:ÆÆ:ÆÆ:ÆÆ:ÆÆÆ";
+	color: gray;
+	opacity: 0.3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
-
-
 
 .clock-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#hype-text{
 	display: flex;
 	justify-content: center;
-	margin-top: 10vw;
-	padding-left: 10rem;
-	padding-right: 10rem;
-}
-#info{
-    
-    display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    
-	
-	background-image: linear-gradient(0deg, transparent, rgb(45, 33, 22) 1%, rgb(21, 17, 12), black);
-    
-}
-.text-box{
-	display: flex;
-	flex-direction: column;
 	align-items: center;
+	flex-direction: column;
+}
+
+#hype-text {
+	padding-top: 5rem;
+	width: clamp(300px, 95%, 600px);
+	margin: auto;
 	text-align: center;
+}
 
+.card-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
 
-
-	margin: 2vw;
+.card {
+	text-align: center;
 	padding: 10px;
-	
-	
-	background-color: transparent;
-    
-   
-    
+	width: 300px;
 }
-.sub-title{
-    font-size: 2vw;
-    --shadow-color: rgba(255, 75, 75, 0.75);
-				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
-					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
-					0 0 100px var(--shadow-color); 
-}
-p {
-    font-family: Orbitron;
-    font-size: 1.5vw;
-   
+.sub-title {
+	font-size: 2.5rem;
+	text-shadow: 0 0 20px rgb(255, 97, 97), 0 0 60px rgb(254, 83, 83),
+		0 0 80px var(--title-shadow);
 }
 
-@media (max-width: 750px){
-	.center{
-		margin-top: 0vw;
-	}
-	
-
-
-
-
-    p{
-        font-size: 4vw;
-        white-space: pre-wrap;
-        text-align: center;
-    }
-	.sub-title{
-		font-size: 6vw;
-	}
-    #title{
-        font-size: 15vw;
-        white-space: pre-wrap;
-        text-align: center;
-        top: 5%;
-    }
-    #buttons{
-        gap: 4vw;
-        top: 100%;
-        
-       
-    }
-    a{
-        scale: 110%;
-    }
-    .button-text{
-        font-size: 2vw;
-    }
+a {
+	text-decoration: underline;
+	color: var(--text-color);
 }
-
-
 
 .particle {
-    width: 3px;
-    height: 3px;
-    position: absolute;
-    background: white;
-  }
-
-
-
-
-
-			
+	width: 3px;
+	height: 3px;
+	position: absolute;
+	background: white;
+}
