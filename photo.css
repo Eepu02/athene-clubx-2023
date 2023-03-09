@@ -118,7 +118,7 @@ canvas {
 }
 
 .center{
-    margin-top: 30vw;
+    margin-top: 10vw;
     display: flex;
     flex-direction: column;
     color: white;
@@ -157,22 +157,8 @@ canvas {
     color: rgb(219, 120, 22);
 }
 
-#info{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20vw;
-    
-    
-}
-.sub-title{
-    font-size: 2vw;
-    --shadow-color: rgba(255, 75, 75, 0.75);
-				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
-					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
-					0 0 100px var(--shadow-color); 
-}
+
+
 footer{
     
     
@@ -220,10 +206,7 @@ a{
     
     z-index: 0;
 }
-.small-text{
-    font-size: 2vw;
 
-}
 
 
 
@@ -269,13 +252,7 @@ h2 {
     z-index: -1;
 }
 
-p {
-    
-    font-family: Orbitron;
-    font-size: 2vw;
-    white-space: nowrap;
-    /*transform: translateX(-3lvw);*/
-}
+
 
 .clock-wrapper {
     display: flex;
@@ -283,36 +260,69 @@ p {
     align-items: center;
     flex-direction: column;
 }
-
-
+#hype-text{
+	display: flex;
+	justify-content: center;
+	margin-top: 10vw;
+	padding-left: 10rem;
+	padding-right: 10rem;
+}
+#info{
+    
+    display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    
+	
+	background-image: linear-gradient(0deg, transparent, rgb(45, 33, 22) 1%, rgb(21, 17, 12), black);
+    
+}
 .text-box{
-   
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+
+
+
+	margin: 2vw;
+	padding: 10px;
+	
+	
+	background-color: transparent;
     
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-    
-    font-size: 2vw;
-    font-family: Orbitron;
-    width: 100vw;
-    height: 15vw;
-    text-align: center;
-    margin: 4vw;
-    
-    
-    background-image: linear-gradient(180deg, transparent, rgb(45, 33, 22) 30%, rgb(21, 17, 12) 60%, black);
    
     
 }
+.sub-title{
+    font-size: 2vw;
+    --shadow-color: rgba(255, 75, 75, 0.75);
+				text-shadow: 0 0 1px #fff, 0 0 20px rgb(255, 97, 97),
+					0 0 60px rgb(254, 157, 83), 0 0 80px var(--shadow-color),
+					0 0 100px var(--shadow-color); 
+}
+p {
+    font-family: Orbitron;
+    font-size: 1.5vw;
+   
+}
 
-@media (max-width: 1500px){
+@media (max-width: 750px){
+	.center{
+		margin-top: 0vw;
+	}
+	
+
+
+
+
     p{
         font-size: 4vw;
         white-space: pre-wrap;
         text-align: center;
     }
+	.sub-title{
+		font-size: 6vw;
+	}
     #title{
         font-size: 15vw;
         white-space: pre-wrap;
@@ -336,8 +346,8 @@ p {
 
 
 .particle {
-    width: 7px;
-    height: 7px;
+    width: 3px;
+    height: 3px;
     position: absolute;
     background: white;
   }
