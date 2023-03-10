@@ -1,10 +1,11 @@
+const page = document.getElementById("slide-over");
+const sizes = page.getBoundingClientRect();
+
 function createParticles() {
 	const particle = document.createElement("div");
 	particle.classList.add("particle");
-	particle.style.left = Math.random() * 100 + "vw";
-	particle.style.top = Math.random() * 100 + "vh";
-
-	const page = document.getElementById("page");
+	particle.style.left = Math.random() * sizes.width + "px";
+	particle.style.top = Math.random() * sizes.height + "px";
 
 	page.appendChild(particle);
 
@@ -13,9 +14,6 @@ function createParticles() {
 	}, 10);
 }
 
-// setInterval(createSnow, 100);
-
-// setInterval(() => {
-//   createParticles();
-
-// }, 10);
+setInterval(() => {
+	createParticles();
+}, 10);
